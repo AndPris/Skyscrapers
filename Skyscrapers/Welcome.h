@@ -38,6 +38,9 @@ namespace Skyscrapers {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::NumericUpDown^ size;
 	private: System::Windows::Forms::Button^ program_solver_btn;
+	private: System::Windows::Forms::Button^ show_rules_btn;
+	private: System::Windows::Forms::Button^ hand_solver_btn;
+
 	protected:
 
 
@@ -57,6 +60,8 @@ namespace Skyscrapers {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->size = (gcnew System::Windows::Forms::NumericUpDown());
 			this->program_solver_btn = (gcnew System::Windows::Forms::Button());
+			this->show_rules_btn = (gcnew System::Windows::Forms::Button());
+			this->hand_solver_btn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->size))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -90,11 +95,32 @@ namespace Skyscrapers {
 			this->program_solver_btn->UseVisualStyleBackColor = true;
 			this->program_solver_btn->Click += gcnew System::EventHandler(this, &Welcome::program_solver_btn_Click);
 			// 
+			// show_rules_btn
+			// 
+			this->show_rules_btn->Location = System::Drawing::Point(89, 273);
+			this->show_rules_btn->Name = L"show_rules_btn";
+			this->show_rules_btn->Size = System::Drawing::Size(149, 67);
+			this->show_rules_btn->TabIndex = 3;
+			this->show_rules_btn->Text = L"Правила гри";
+			this->show_rules_btn->UseVisualStyleBackColor = true;
+			this->show_rules_btn->Click += gcnew System::EventHandler(this, &Welcome::show_rules_btn_Click);
+			// 
+			// hand_solver_btn
+			// 
+			this->hand_solver_btn->Location = System::Drawing::Point(89, 200);
+			this->hand_solver_btn->Name = L"hand_solver_btn";
+			this->hand_solver_btn->Size = System::Drawing::Size(149, 67);
+			this->hand_solver_btn->TabIndex = 4;
+			this->hand_solver_btn->Text = L"Ручне розв\'язання";
+			this->hand_solver_btn->UseVisualStyleBackColor = true;
+			// 
 			// Welcome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(352, 437);
+			this->ClientSize = System::Drawing::Size(352, 397);
+			this->Controls->Add(this->hand_solver_btn);
+			this->Controls->Add(this->show_rules_btn);
 			this->Controls->Add(this->program_solver_btn);
 			this->Controls->Add(this->size);
 			this->Controls->Add(this->label1);
@@ -111,5 +137,6 @@ namespace Skyscrapers {
 #pragma endregion
 	private: 
 		Void program_solver_btn_Click(Object^, EventArgs^);
-	};
+		Void show_rules_btn_Click(Object^, EventArgs^);
+};
 }

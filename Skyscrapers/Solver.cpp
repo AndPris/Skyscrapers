@@ -114,7 +114,7 @@ bool Solver::check_input() {
 			return false;
 		}
 	}
-
+	
 	return true;
 }
 
