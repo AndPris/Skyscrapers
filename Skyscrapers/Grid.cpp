@@ -20,6 +20,15 @@ Grid::Grid(int size) {
     left_clues = new int[size];
     right_clues = new int[size];
 }
+void Grid::fill_grid(DataGridView^ grid) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (!String::IsNullOrEmpty(Convert::ToString(grid->Rows[i]->Cells[j]->Value)))
+                set_cell_to(i, j, Convert::ToInt32(grid->Rows[i]->Cells[j]->Value));
+        }
+    }
+}
+
 Grid::Grid(const Grid& obj) {
     this->size = obj.size;
 

@@ -14,6 +14,7 @@ class Grid {
     int* right_clues;
 public:
     Grid(int);
+    void fill_grid(DataGridView^);
 
     Grid(const Grid&);
     Grid& operator=(const Grid&);

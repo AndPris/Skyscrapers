@@ -122,14 +122,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="Generator.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Puzzle.cpp" />
     <ClCompile Include="Solver.cpp" />
     <ClCompile Include="Welcome.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="Generator.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="Puzzle.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Solver.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -138,6 +144,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Puzzle.resx">
+      <DependentUpon>Puzzle.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Solver.resx">
       <DependentUpon>Solver.h</DependentUpon>
     </EmbeddedResource>

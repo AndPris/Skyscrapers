@@ -1,5 +1,6 @@
 #pragma once
 #include "Solver.h"
+#include "Puzzle.h"
 
 namespace Skyscrapers {
 
@@ -97,6 +98,7 @@ namespace Skyscrapers {
 			// 
 			// show_rules_btn
 			// 
+			this->show_rules_btn->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->show_rules_btn->Location = System::Drawing::Point(89, 273);
 			this->show_rules_btn->Name = L"show_rules_btn";
 			this->show_rules_btn->Size = System::Drawing::Size(149, 67);
@@ -107,12 +109,14 @@ namespace Skyscrapers {
 			// 
 			// hand_solver_btn
 			// 
+			this->hand_solver_btn->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->hand_solver_btn->Location = System::Drawing::Point(89, 200);
 			this->hand_solver_btn->Name = L"hand_solver_btn";
 			this->hand_solver_btn->Size = System::Drawing::Size(149, 67);
 			this->hand_solver_btn->TabIndex = 4;
 			this->hand_solver_btn->Text = L"Ручне розв\'язання";
 			this->hand_solver_btn->UseVisualStyleBackColor = true;
+			this->hand_solver_btn->Click += gcnew System::EventHandler(this, &Welcome::hand_solver_btn_Click);
 			// 
 			// Welcome
 			// 
@@ -138,5 +142,6 @@ namespace Skyscrapers {
 	private: 
 		Void program_solver_btn_Click(Object^, EventArgs^);
 		Void show_rules_btn_Click(Object^, EventArgs^);
+		Void hand_solver_btn_Click(Object^, EventArgs^);
 };
 }

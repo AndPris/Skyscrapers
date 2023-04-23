@@ -56,7 +56,7 @@ Solver::Solver(int size) {
 	solve_btn->Location = Point(right_clues->Location.X + CELL_SIZE * 2, grid->Location.Y);
 }
 
-Void Solver::clear_grid() {
+void Solver::clear_grid() {
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
 			grid->Rows[i]->Cells[j]->Value = "";
@@ -92,25 +92,25 @@ bool Solver::check_input() {
 		int value;
 		if (!int::TryParse(Convert::ToString(top_clues->Rows[0]->Cells[i]->Value), value)
 			|| value < 1 || value > size) {
-			result_label->Text = "¬и маЇте ввести ц≥ле число в≥д 1 до " + Convert::ToString(size);
+			result_label->Text = "¬и маЇте вводити лише ц≥л≥ числа в≥д 1 до " + Convert::ToString(size);
 			return false;
 		}
 
 		if (!int::TryParse(Convert::ToString(bottom_clues->Rows[0]->Cells[i]->Value), value)
 			|| value < 1 || value > size) {
-			result_label->Text = "¬и маЇте ввести ц≥ле число в≥д 1 до " + Convert::ToString(size);
+			result_label->Text = "¬и маЇте вводити лише ц≥л≥ числа в≥д 1 до " + Convert::ToString(size);
 			return false;
 		}
 
 		if (!int::TryParse(Convert::ToString(left_clues->Rows[i]->Cells[0]->Value), value)
 			|| value < 1 || value > size) {
-			result_label->Text = "¬и маЇте ввести ц≥ле число в≥д 1 до " + Convert::ToString(size);
+			result_label->Text = "¬и маЇте вводити лише ц≥л≥ числа в≥д 1 до " + Convert::ToString(size);
 			return false;
 		}
 
 		if (!int::TryParse(Convert::ToString(right_clues->Rows[i]->Cells[0]->Value), value)
 			|| value < 1 || value > size) {
-			result_label->Text = "¬и маЇте ввести ц≥ле число в≥д 1 до " + Convert::ToString(size);
+			result_label->Text = "¬и маЇте вводити лише ц≥л≥ числа в≥д 1 до " + Convert::ToString(size);
 			return false;
 		}
 	}
@@ -121,8 +121,10 @@ bool Solver::check_input() {
 Void Solver::solve_btn_Click(Object^ sender, EventArgs^ e) {
 	clear_grid();
 	
-	if (!check_input())
+	if (!check_input()) {
+		solve_btn->Enabled = false;
 		return;
+	}
 
 	Grid puzzle(size);
 
@@ -150,4 +152,9 @@ Void Solver::solve_btn_Click(Object^ sender, EventArgs^ e) {
 		result_label->Text = "Solved!";
 	}
 
+	solve_btn->Enabled = false;
+}
+
+Void Solver::clues_CellValueChanged(Object^ sender, DataGridViewCellEventArgs^ e) {
+	solve_btn->Enabled = true;
 }

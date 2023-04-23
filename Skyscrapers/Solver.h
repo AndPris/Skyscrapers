@@ -24,7 +24,7 @@ namespace Skyscrapers {
 		}
 		
 		Solver(int);
-		Void clear_grid();
+		void clear_grid();
 		bool check_input();
 	protected:
 		/// <summary>
@@ -62,16 +62,16 @@ namespace Skyscrapers {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle21 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle22 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle23 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle24 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle25 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle26 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle27 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle28 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle29 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle30 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->grid = (gcnew System::Windows::Forms::DataGridView());
 			this->top_clues = (gcnew System::Windows::Forms::DataGridView());
 			this->bottom_clues = (gcnew System::Windows::Forms::DataGridView());
@@ -95,28 +95,28 @@ namespace Skyscrapers {
 			this->grid->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->grid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->grid->ColumnHeadersVisible = false;
-			dataGridViewCellStyle21->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle21->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			dataGridViewCellStyle21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::ActiveBorder;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle21->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle21->SelectionBackColor = System::Drawing::SystemColors::ActiveBorder;
-			dataGridViewCellStyle21->SelectionForeColor = System::Drawing::SystemColors::ActiveBorder;
-			dataGridViewCellStyle21->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->grid->DefaultCellStyle = dataGridViewCellStyle21;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::ActiveBorder;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::ActiveBorder;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->grid->DefaultCellStyle = dataGridViewCellStyle1;
 			this->grid->Location = System::Drawing::Point(74, 147);
 			this->grid->Name = L"grid";
 			this->grid->ReadOnly = true;
 			this->grid->RowHeadersVisible = false;
 			this->grid->RowHeadersWidth = 24;
-			dataGridViewCellStyle22->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle22->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			dataGridViewCellStyle22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::ActiveBorder;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle22->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle22->SelectionBackColor = System::Drawing::SystemColors::ActiveBorder;
-			dataGridViewCellStyle22->SelectionForeColor = System::Drawing::SystemColors::ControlText;
-			this->grid->RowsDefaultCellStyle = dataGridViewCellStyle22;
+			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::ActiveBorder;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::ControlText;
+			this->grid->RowsDefaultCellStyle = dataGridViewCellStyle2;
 			this->grid->RowTemplate->Height = 24;
 			this->grid->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->grid->Size = System::Drawing::Size(250, 250);
@@ -129,27 +129,27 @@ namespace Skyscrapers {
 			this->top_clues->AllowUserToResizeColumns = false;
 			this->top_clues->AllowUserToResizeRows = false;
 			this->top_clues->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			dataGridViewCellStyle23->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle23->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			dataGridViewCellStyle23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle23->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle23->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle23->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle23->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->top_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->top_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this->top_clues->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->top_clues->ColumnHeadersVisible = false;
 			this->top_clues->Cursor = System::Windows::Forms::Cursors::Hand;
-			dataGridViewCellStyle24->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle24->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle24->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle24->SelectionBackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle24->SelectionForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle24->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->top_clues->DefaultCellStyle = dataGridViewCellStyle24;
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->top_clues->DefaultCellStyle = dataGridViewCellStyle4;
 			this->top_clues->Location = System::Drawing::Point(74, 90);
 			this->top_clues->Name = L"top_clues";
 			this->top_clues->RowHeadersVisible = false;
@@ -159,6 +159,7 @@ namespace Skyscrapers {
 			this->top_clues->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->top_clues->Size = System::Drawing::Size(250, 51);
 			this->top_clues->TabIndex = 1;
+			this->top_clues->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Solver::clues_CellValueChanged);
 			// 
 			// bottom_clues
 			// 
@@ -167,27 +168,27 @@ namespace Skyscrapers {
 			this->bottom_clues->AllowUserToResizeColumns = false;
 			this->bottom_clues->AllowUserToResizeRows = false;
 			this->bottom_clues->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			dataGridViewCellStyle25->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle25->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			dataGridViewCellStyle25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle25->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle25->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle25->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle25->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->bottom_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->bottom_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->bottom_clues->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->bottom_clues->ColumnHeadersVisible = false;
 			this->bottom_clues->Cursor = System::Windows::Forms::Cursors::Hand;
-			dataGridViewCellStyle26->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle26->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle6->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle26->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle26->SelectionBackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle26->SelectionForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle26->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->bottom_clues->DefaultCellStyle = dataGridViewCellStyle26;
+			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->bottom_clues->DefaultCellStyle = dataGridViewCellStyle6;
 			this->bottom_clues->Location = System::Drawing::Point(74, 403);
 			this->bottom_clues->Name = L"bottom_clues";
 			this->bottom_clues->RowHeadersVisible = false;
@@ -197,6 +198,7 @@ namespace Skyscrapers {
 			this->bottom_clues->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->bottom_clues->Size = System::Drawing::Size(250, 51);
 			this->bottom_clues->TabIndex = 2;
+			this->bottom_clues->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Solver::clues_CellValueChanged);
 			// 
 			// left_clues
 			// 
@@ -205,27 +207,27 @@ namespace Skyscrapers {
 			this->left_clues->AllowUserToResizeColumns = false;
 			this->left_clues->AllowUserToResizeRows = false;
 			this->left_clues->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			dataGridViewCellStyle27->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle27->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			dataGridViewCellStyle27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle27->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle27->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle27->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle27->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->left_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle7->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			dataGridViewCellStyle7->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle7->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->left_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this->left_clues->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->left_clues->ColumnHeadersVisible = false;
 			this->left_clues->Cursor = System::Windows::Forms::Cursors::Hand;
-			dataGridViewCellStyle28->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle28->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle28->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle28->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle28->SelectionBackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle28->SelectionForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle28->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->left_clues->DefaultCellStyle = dataGridViewCellStyle28;
+			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->left_clues->DefaultCellStyle = dataGridViewCellStyle8;
 			this->left_clues->Location = System::Drawing::Point(21, 147);
 			this->left_clues->Name = L"left_clues";
 			this->left_clues->RowHeadersVisible = false;
@@ -235,6 +237,7 @@ namespace Skyscrapers {
 			this->left_clues->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->left_clues->Size = System::Drawing::Size(47, 250);
 			this->left_clues->TabIndex = 3;
+			this->left_clues->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Solver::clues_CellValueChanged);
 			// 
 			// right_clues
 			// 
@@ -243,27 +246,27 @@ namespace Skyscrapers {
 			this->right_clues->AllowUserToResizeColumns = false;
 			this->right_clues->AllowUserToResizeRows = false;
 			this->right_clues->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			dataGridViewCellStyle29->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle29->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			dataGridViewCellStyle29->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle29->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle29->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle29->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle29->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->right_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle9->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			dataGridViewCellStyle9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			dataGridViewCellStyle9->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle9->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->right_clues->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this->right_clues->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->right_clues->ColumnHeadersVisible = false;
 			this->right_clues->Cursor = System::Windows::Forms::Cursors::Hand;
-			dataGridViewCellStyle30->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle30->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle30->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle10->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle10->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			dataGridViewCellStyle30->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle30->SelectionBackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle30->SelectionForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle30->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->right_clues->DefaultCellStyle = dataGridViewCellStyle30;
+			dataGridViewCellStyle10->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle10->SelectionBackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle10->SelectionForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle10->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->right_clues->DefaultCellStyle = dataGridViewCellStyle10;
 			this->right_clues->Location = System::Drawing::Point(330, 147);
 			this->right_clues->Name = L"right_clues";
 			this->right_clues->RowHeadersVisible = false;
@@ -273,6 +276,7 @@ namespace Skyscrapers {
 			this->right_clues->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->right_clues->Size = System::Drawing::Size(47, 250);
 			this->right_clues->TabIndex = 4;
+			this->right_clues->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Solver::clues_CellValueChanged);
 			// 
 			// result_label
 			// 
@@ -321,6 +325,8 @@ namespace Skyscrapers {
 
 		}
 #pragma endregion
-private: Void solve_btn_Click(Object^, EventArgs^);
+private: 
+	Void solve_btn_Click(Object^, EventArgs^);
+	Void clues_CellValueChanged(Object^, DataGridViewCellEventArgs^);
 };
 }
