@@ -74,6 +74,7 @@ void Puzzle::clear_grid() {
 }
 Void Puzzle::generation_btn_Click(Object^ sender, EventArgs^ e) {
 	clear_grid();
+	result_label->Text = "";
 	grid->ReadOnly = false;
 	check_btn->Enabled = true;
 	hint_btn->Enabled = true;
@@ -94,6 +95,7 @@ bool Puzzle::is_filled() {
 		for (int j = 0; j < size; j++) {
 			//if one of cells is empty
 			if (String::IsNullOrEmpty(Convert::ToString(grid->Rows[i]->Cells[j]->Value))) {
+				result_label->ForeColor = Color::Red;
 				result_label->Text = "Ви маєте заповнити всі клітинки!";
 				return false;
 			}
@@ -109,6 +111,7 @@ bool Puzzle::check_input() {
 			int value;
 			if ((!int::TryParse(Convert::ToString(grid->Rows[i]->Cells[j]->Value), value)
 				|| value < 1 || value > size) && (!String::IsNullOrEmpty(Convert::ToString(grid->Rows[i]->Cells[j]->Value)))) {
+				result_label->ForeColor = Color::Red;
 				result_label->Text = "Ви маєте вводити лише цілі числа від 1 до " + Convert::ToString(size);
 				return false;
 			}
@@ -149,6 +152,7 @@ Void Puzzle::check_btn_Click(Object^ sender, EventArgs^ e) {
 		return;
 
 	if (has_repeat()) {
+		result_label->ForeColor = Color::Red;
 		result_label->Text = "У кожному рядочку і стовпчику всі числа мають бути різними!";
 		return;
 	}
@@ -161,9 +165,11 @@ Void Puzzle::check_btn_Click(Object^ sender, EventArgs^ e) {
 	puzzle.set_right_clues(right_clues);
 
 	if (puzzle.is_solved()) {
+		result_label->ForeColor = Color::Green;
 		result_label->Text = "Правильно!";
 	}
 	else {
+		result_label->ForeColor = Color::Red;
 		result_label->Text = "Неправильно!";
 	}
 }
@@ -173,6 +179,7 @@ Void Puzzle::hint_btn_Click(Object^ sender, EventArgs^ e) {
 		return;
 
 	if (has_repeat()) {
+		result_label->ForeColor = Color::Red;
 		result_label->Text = "У кожному рядочку і стовпчику всі числа мають бути різними!";
 		return;
 	}
@@ -187,14 +194,21 @@ Void Puzzle::hint_btn_Click(Object^ sender, EventArgs^ e) {
 	puzzle.set_right_clues(right_clues);
 
 	if (puzzle.is_solved()) {
+		result_label->ForeColor = Color::Green;
 		result_label->Text = "Головоломку вже розв'язано!";
 	} else if(!puzzle.is_solvable()) {
+		result_label->ForeColor = Color::Red;
 		result_label->Text = "За таких введених значень головоломку розв'язати не можна!";
 	} else {
-		srand(time(NULL));
+		srand(time(nullptr));
 
 		puzzle.remove_extra_possibilities();
-		puzzle.solve_basic_clues();
+		//puzzle.solve_basic_clues();
+		if (!puzzle.solve_basic_clues()) {
+			result_label->ForeColor = Color::Red;
+			result_label->Text = "За таких введених значень головоломку розв'язати не можна!";
+			return;
+		}
 		puzzle.remove_single_possibility();
 		solve(puzzle);
 
