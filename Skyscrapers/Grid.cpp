@@ -293,66 +293,6 @@ bool Grid::is_solvable() {
             return false;
     }
 
-
-    //bottom
-    //for (int i = 0; i < size; i++) {
-    //    highest = 0;
-    //    counter = 0;
-    //    for (int j = size - 1; j >= 0; j--) {
-    //        if (cells[j][i].get_value() == 0) {
-    //            counter = bottom_clues[i];
-    //            break;
-    //        }
-    //        if (highest < cells[j][i].get_value()) {
-    //            counter++;
-    //            highest = cells[j][i].get_value();
-    //        }
-    //    }
-
-    //    if (bottom_clues[i] != counter)
-    //        return false;
-    //}
-    ////left
-    //for (int i = 0; i < size; i++) {
-    //    highest = 0;
-    //    counter = 0;
-    //    for (int j = 0; j < size; j++) {
-    //        if (cells[i][j].get_value() == 0) {
-    //            counter = left_clues[i];
-    //            break;
-    //        }
-
-    //        if (highest < cells[i][j].get_value()) {
-    //            counter++;
-    //            highest = cells[i][j].get_value();
-    //        }
-    //    }
-
-    //    if (left_clues[i] != counter)
-    //        return false;
-    //}
-
-
-    //right
-    //for (int i = 0; i < size; i++) {
-    //    highest = 0;
-    //    counter = 0;
-    //    for (int j = size - 1; j >= 0; j--) {
-    //        if (cells[i][j].get_value() == 0) {
-    //            counter = right_clues[i];
-    //            break;
-    //        }
-
-    //        if (highest < cells[i][j].get_value()) {
-    //            counter++;
-    //            highest = cells[i][j].get_value();
-    //        }
-    //    }
-
-    //    if (right_clues[i] != counter)
-    //        return false;
-    //}
-
     return true;
 }
 
