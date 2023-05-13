@@ -128,11 +128,10 @@ bool Solver::check_input() {
 
 Void Solver::solve_btn_Click(Object^ sender, EventArgs^ e) {
 	clear_grid();
-	
-	if (!check_input()) {
-		solve_btn->Enabled = false;
+	solve_btn->Enabled = false;
+
+	if (!check_input())
 		return;
-	}
 
 	Grid puzzle(size);
 
@@ -146,25 +145,19 @@ Void Solver::solve_btn_Click(Object^ sender, EventArgs^ e) {
 	if (!puzzle.solve_basic_clues()) {
 		result_label->ForeColor = Color::Red;
 		result_label->Text = "Ця головоломка не має розв'язку!";
-	} else if (!puzzle.is_solved()) {
-		puzzle.remove_single_possibility();
-		if (!solve(puzzle)) {
-			result_label->ForeColor = Color::Red;
-			result_label->Text = "Ця головоломка не має розв'язку!";
-		}
-		else {
-			puzzle.display(grid);
-			result_label->ForeColor = Color::Green;
-			result_label->Text = "Розв'язано!";
-		}
-	}
-	else {
-		puzzle.display(grid);
-		result_label->ForeColor = Color::Green;
-		result_label->Text = "Розв'язано!";
+		return;
 	}
 
-	solve_btn->Enabled = false;
+	puzzle.remove_single_possibility();
+	if (!solve(puzzle)) {
+		result_label->ForeColor = Color::Red;
+		result_label->Text = "Ця головоломка не має розв'язку!";
+		return;
+	}
+
+	puzzle.display(grid);
+	result_label->ForeColor = Color::Green;
+	result_label->Text = "Розв'язано!";
 }
 
 Void Solver::clues_CellValueChanged(Object^ sender, DataGridViewCellEventArgs^ e) {

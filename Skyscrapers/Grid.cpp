@@ -215,11 +215,14 @@ bool Grid::is_solved() {
 }
 bool Grid::is_solvable() {
     int counter, highest;
-    //top
     for (int i = 0; i < size; i++) {
+        //top
         highest = 0;
         counter = 0;
         for (int j = 0; j < size; j++) {
+            if (cells[j][i].get_possibilities().empty() && cells[j][i].get_value() == 0)
+                return false;
+
             if (cells[j][i].get_value() == 0) {
                 counter = top_clues[i];
                 break;
@@ -233,29 +236,8 @@ bool Grid::is_solvable() {
 
         if (top_clues[i] != counter)
             return false;
-    }
 
-
-    //bottom
-    for (int i = 0; i < size; i++) {
-        highest = 0;
-        counter = 0;
-        for (int j = size - 1; j >= 0; j--) {
-            if (cells[j][i].get_value() == 0) {
-                counter = bottom_clues[i];
-                break;
-            }
-            if (highest < cells[j][i].get_value()) {
-                counter++;
-                highest = cells[j][i].get_value();
-            }
-        }
-
-        if (bottom_clues[i] != counter)
-            return false;
-    }
-    //left
-    for (int i = 0; i < size; i++) {
+        //left
         highest = 0;
         counter = 0;
         for (int j = 0; j < size; j++) {
@@ -272,11 +254,27 @@ bool Grid::is_solvable() {
 
         if (left_clues[i] != counter)
             return false;
-    }
 
 
-    //right
-    for (int i = 0; i < size; i++) {
+        //bottom
+        highest = 0;
+        counter = 0;
+        for (int j = size - 1; j >= 0; j--) {
+            if (cells[j][i].get_value() == 0) {
+                counter = bottom_clues[i];
+                break;
+            }
+            if (highest < cells[j][i].get_value()) {
+                counter++;
+                highest = cells[j][i].get_value();
+            }
+        }
+
+        if (bottom_clues[i] != counter)
+            return false;
+
+
+        //right
         highest = 0;
         counter = 0;
         for (int j = size - 1; j >= 0; j--) {
@@ -295,13 +293,65 @@ bool Grid::is_solvable() {
             return false;
     }
 
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            if (cells[i][j].get_value() == 0 && cells[i][j].get_possibilities().empty()) {
-                return false;
-            }
-        }
-    }
+
+    //bottom
+    //for (int i = 0; i < size; i++) {
+    //    highest = 0;
+    //    counter = 0;
+    //    for (int j = size - 1; j >= 0; j--) {
+    //        if (cells[j][i].get_value() == 0) {
+    //            counter = bottom_clues[i];
+    //            break;
+    //        }
+    //        if (highest < cells[j][i].get_value()) {
+    //            counter++;
+    //            highest = cells[j][i].get_value();
+    //        }
+    //    }
+
+    //    if (bottom_clues[i] != counter)
+    //        return false;
+    //}
+    ////left
+    //for (int i = 0; i < size; i++) {
+    //    highest = 0;
+    //    counter = 0;
+    //    for (int j = 0; j < size; j++) {
+    //        if (cells[i][j].get_value() == 0) {
+    //            counter = left_clues[i];
+    //            break;
+    //        }
+
+    //        if (highest < cells[i][j].get_value()) {
+    //            counter++;
+    //            highest = cells[i][j].get_value();
+    //        }
+    //    }
+
+    //    if (left_clues[i] != counter)
+    //        return false;
+    //}
+
+
+    //right
+    //for (int i = 0; i < size; i++) {
+    //    highest = 0;
+    //    counter = 0;
+    //    for (int j = size - 1; j >= 0; j--) {
+    //        if (cells[i][j].get_value() == 0) {
+    //            counter = right_clues[i];
+    //            break;
+    //        }
+
+    //        if (highest < cells[i][j].get_value()) {
+    //            counter++;
+    //            highest = cells[i][j].get_value();
+    //        }
+    //    }
+
+    //    if (right_clues[i] != counter)
+    //        return false;
+    //}
 
     return true;
 }

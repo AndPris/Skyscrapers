@@ -196,21 +196,22 @@ Void Puzzle::hint_btn_Click(Object^ sender, EventArgs^ e) {
 	if (puzzle.is_solved()) {
 		result_label->ForeColor = Color::Green;
 		result_label->Text = "Головоломку вже розв'язано!";
-	} else if(!puzzle.is_solvable()) {
-		result_label->ForeColor = Color::Red;
-		result_label->Text = "За таких введених значень головоломку розв'язати не можна!";
-	} else {
+	}else {
 		srand(time(nullptr));
 
 		puzzle.remove_extra_possibilities();
-		//puzzle.solve_basic_clues();
 		if (!puzzle.solve_basic_clues()) {
 			result_label->ForeColor = Color::Red;
 			result_label->Text = "За таких введених значень головоломку розв'язати не можна!";
 			return;
 		}
 		puzzle.remove_single_possibility();
-		solve(puzzle);
+
+		if (!solve(puzzle)) {
+			result_label->ForeColor = Color::Red;
+			result_label->Text = "За таких введених значень головоломку розв'язати не можна!";
+			return;
+		}
 
 		int row, col;
 		do {
