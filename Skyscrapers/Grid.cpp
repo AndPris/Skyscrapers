@@ -94,9 +94,6 @@ Cell* Grid::operator[](int index) {
     return cells[index];
 }
 
-Cell** Grid::get_cells() {
-    return cells;
-}
 int Grid::get_size() {
     return size;
 }
@@ -148,8 +145,8 @@ bool Grid::is_solved() {
 
     int highest;
     int counter;
-    //top
     for (int i = 0; i < size; i++) {
+        //top
         highest = 0;
         counter = 0;
         for (int j = 0; j < size; j++) {
@@ -161,11 +158,9 @@ bool Grid::is_solved() {
 
         if (top_clues[i] != counter)
             return false;
-    }
 
 
-    //bottom
-    for (int i = 0; i < size; i++) {
+        //bottom
         highest = 0;
         counter = 0;
         for (int j = size - 1; j >= 0; j--) {
@@ -177,11 +172,9 @@ bool Grid::is_solved() {
 
         if (bottom_clues[i] != counter)
             return false;
-    }
 
 
-    //left
-    for (int i = 0; i < size; i++) {
+        //left
         highest = 0;
         counter = 0;
         for (int j = 0; j < size; j++) {
@@ -193,11 +186,8 @@ bool Grid::is_solved() {
 
         if (left_clues[i] != counter)
             return false;
-    }
 
-
-    //right
-    for (int i = 0; i < size; i++) {
+        //right
         highest = 0;
         counter = 0;
         for (int j = size - 1; j >= 0; j--) {
@@ -402,37 +392,50 @@ bool Grid::solve_basic_clues() {
     return true;
 }
 void Grid::remove_single_possibility() {
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            if ((cells[i][j].get_possibilities().size() == 1) && (cells[i][j].get_value() == 0)) {
-                int value = cells[i][j].get_possibilities()[0];
-                set_cell_to(i, j, value);
+    int is_removed;
+    
+    do {
+        is_removed = 0;
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if ((cells[i][j].get_possibilities().size() == 1) && (cells[i][j].get_value() == 0)) {
+                    int value = cells[i][j].get_possibilities()[0];
+                    set_cell_to(i, j, value);
+                    is_removed = 1;
+                }
             }
         }
-    }
+    } while (is_removed == 1);
 }
-bool solve(Grid& puzzle) {
-    if (puzzle.is_solved())
+bool Grid::solve() {
+    if (is_solved())
         return true;
 
-    if (!puzzle.is_solvable())
+    if (!is_solvable())
         return false;
 
     int row, col;
-    int length = puzzle.get_size() + 1;
-    for (int i = 0; i < puzzle.get_size(); i++) {
-        for (int j = 0; j < puzzle.get_size(); j++) {
-            if (puzzle[i][j].get_value() == 0 && puzzle[i][j].get_possibilities().size() < length) {
+    int length = get_size() + 1;
+    for (int i = 0; i < get_size(); i++) {
+        for (int j = 0; j < get_size(); j++) {
+            if (cells[i][j].get_value() == 0 && cells[i][j].get_possibilities().size() < length) {
                 row = i;
                 col = j;
-                length = puzzle[i][j].get_possibilities().size();
+                length = cells[i][j].get_possibilities().size();
             }
+
+            if (length == 2)
+                break;
         }
+
+        if (length == 2)
+            break;
     }
 
-    vector<int> possibilities = puzzle[row][col].get_possibilities();
+    vector<int> possibilities = cells[row][col].get_possibilities();
     for (int i = 0; i < possibilities.size(); i++) {
-        Grid temp(puzzle);
+        Grid temp(*this);
  
         temp.set_cell_to(row, col, possibilities[i]);
         temp.remove_single_possibility();
@@ -441,12 +444,12 @@ bool solve(Grid& puzzle) {
             continue;
         }
         else if (temp.is_solved()) {
-            puzzle = temp;
+            *this = temp;
             return true;
         }
         else if (!temp.is_filled()) {
-            if (solve(temp)) {
-                puzzle = temp;
+            if (temp.solve()) {
+                *this = temp;
                 return true;
             }
         }

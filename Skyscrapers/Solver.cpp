@@ -2,6 +2,7 @@
 
 #include "Solver.h"
 #include "Grid.h"
+#include "Generator.h"
 
 using namespace Skyscrapers;
 
@@ -13,9 +14,10 @@ Solver::Solver(int size) {
 	grid->Size = Drawing::Size(size * CELL_SIZE, size * CELL_SIZE);
 	grid->ColumnCount = size;
 	grid->RowCount = size;
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size - 1; i++) {
 		grid->Rows[i]->Height = CELL_SIZE;
 	}
+	grid->Rows[size - 1]->Height = CELL_SIZE - 3;
 
 
 	//top clues configuration
@@ -52,8 +54,11 @@ Solver::Solver(int size) {
 	}
 	right_clues->Rows[size - 1]->Height = CELL_SIZE - 3;
 
+	//generation button configuration
+	generation_btn->Location = Point(right_clues->Location.X + CELL_SIZE * 2, grid->Location.Y);
+
 	//solve button configuration
-	solve_btn->Location = Point(right_clues->Location.X + CELL_SIZE * 2, grid->Location.Y);
+	solve_btn->Location = Point(generation_btn->Location.X, generation_btn->Location.Y + generation_btn->Size.Height + 5);
 }
 
 void Solver::clear_grid() {
@@ -149,7 +154,7 @@ Void Solver::solve_btn_Click(Object^ sender, EventArgs^ e) {
 	}
 
 	puzzle.remove_single_possibility();
-	if (!solve(puzzle)) {
+	if (!puzzle.solve()) {
 		result_label->ForeColor = Color::Red;
 		result_label->Text = "÷€ головоломка не маЇ розв'€зку!";
 		return;
@@ -161,5 +166,21 @@ Void Solver::solve_btn_Click(Object^ sender, EventArgs^ e) {
 }
 
 Void Solver::clues_CellValueChanged(Object^ sender, DataGridViewCellEventArgs^ e) {
+	result_label->Text = "";
 	solve_btn->Enabled = true;
+}
+
+Void Solver::generation_btn_Click(Object^ sender, EventArgs^ e) {
+	clear_grid();
+	result_label->Text = "";
+
+	int** puzzle = create_matrix(size);
+	create_puzzle(puzzle, size, 0);
+
+	create_top_clues(puzzle, size, top_clues);
+	create_bottom_clues(puzzle, size, bottom_clues);
+	create_left_clues(puzzle, size, left_clues);
+	create_right_clues(puzzle, size, right_clues);
+
+	delete_matrix(puzzle, size);
 }

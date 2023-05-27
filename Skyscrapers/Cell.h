@@ -19,6 +19,4 @@ public:
     void set_value(int);
     void remove_possibility(int);
     void left_possibility(int);
-
-    void display();
 };

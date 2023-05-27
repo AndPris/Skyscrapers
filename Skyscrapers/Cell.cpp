@@ -36,11 +36,3 @@ void Cell::left_possibility(int value) {
     possibilities.clear();
     possibilities.push_back(value);
 }
-
-
-void Cell::display() {
-    for (int i = 0; i < possibilities.size(); i++) {
-        cout.width(2); cout << possibilities[i] << ' ';
-    }
-    cout << endl;
-}

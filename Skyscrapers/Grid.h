@@ -21,7 +21,6 @@ public:
 
     Cell* operator[](int);
 
-    Cell** get_cells();
     int get_size();
 
     void set_top_clues(DataGridView^);
@@ -38,7 +37,7 @@ public:
     void remove_extra_possibilities();
     void remove_single_possibility();
     bool solve_basic_clues();
-    friend bool solve(Grid&);
+    bool solve();
 
     void display(DataGridView^);
 

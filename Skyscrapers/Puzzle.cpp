@@ -9,6 +9,7 @@
 using namespace Skyscrapers;
 
 Puzzle::Puzzle(int size) {
+
 	InitializeComponent();
 	this->size = size;
 
@@ -50,9 +51,10 @@ Puzzle::Puzzle(int size) {
 	right_clues->RowCount = size;
 	right_clues->Location = Point(grid->Location.X + grid->Size.Width, grid->Location.Y);
 	right_clues->Size = Drawing::Size(CELL_SIZE, grid->Size.Height);
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size - 1; i++) {
 		right_clues->Rows[i]->Height = CELL_SIZE;
 	}
+	right_clues->Rows[size - 1]->Height = CELL_SIZE - 3;
 
 	//generation button configuration
 	generation_btn->Location = Point(right_clues->Location.X + CELL_SIZE * 2, grid->Location.Y);
@@ -207,7 +209,7 @@ Void Puzzle::hint_btn_Click(Object^ sender, EventArgs^ e) {
 		}
 		puzzle.remove_single_possibility();
 
-		if (!solve(puzzle)) {
+		if (!puzzle.solve()) {
 			result_label->ForeColor = Color::Red;
 			result_label->Text = "За таких введених значень головоломку розв'язати не можна!";
 			return;
@@ -221,4 +223,8 @@ Void Puzzle::hint_btn_Click(Object^ sender, EventArgs^ e) {
 
 		grid->Rows[row]->Cells[col]->Value = Convert::ToString(puzzle[row][col].get_value());
 	}
+}
+
+Void Puzzle::grid_CellValueChanged(Object^ sender, DataGridViewCellEventArgs^ e) {
+	result_label->Text = "";
 }

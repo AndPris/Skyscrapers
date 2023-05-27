@@ -36,7 +36,9 @@ namespace Skyscrapers {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ size_label;
+	protected:
+
 	private: System::Windows::Forms::NumericUpDown^ size;
 	private: System::Windows::Forms::Button^ program_solver_btn;
 	private: System::Windows::Forms::Button^ show_rules_btn;
@@ -58,7 +60,7 @@ namespace Skyscrapers {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->size_label = (gcnew System::Windows::Forms::Label());
 			this->size = (gcnew System::Windows::Forms::NumericUpDown());
 			this->program_solver_btn = (gcnew System::Windows::Forms::Button());
 			this->show_rules_btn = (gcnew System::Windows::Forms::Button());
@@ -66,14 +68,14 @@ namespace Skyscrapers {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->size))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// label1
+			// size_label
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 71);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(141, 16);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Розмір головоломки";
+			this->size_label->AutoSize = true;
+			this->size_label->Location = System::Drawing::Point(12, 71);
+			this->size_label->Name = L"size_label";
+			this->size_label->Size = System::Drawing::Size(141, 16);
+			this->size_label->TabIndex = 0;
+			this->size_label->Text = L"Розмір головоломки";
 			// 
 			// size
 			// 
@@ -127,7 +129,7 @@ namespace Skyscrapers {
 			this->Controls->Add(this->show_rules_btn);
 			this->Controls->Add(this->program_solver_btn);
 			this->Controls->Add(this->size);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->size_label);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"Welcome";

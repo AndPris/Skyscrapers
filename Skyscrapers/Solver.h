@@ -45,6 +45,7 @@ namespace Skyscrapers {
 	private: System::Windows::Forms::DataGridView^ right_clues;
 	private: System::Windows::Forms::Label^ result_label;
 	private: System::Windows::Forms::Button^ solve_btn;
+	private: System::Windows::Forms::Button^ generation_btn;
 	protected:
 
 	protected:
@@ -79,6 +80,7 @@ namespace Skyscrapers {
 			this->right_clues = (gcnew System::Windows::Forms::DataGridView());
 			this->result_label = (gcnew System::Windows::Forms::Label());
 			this->solve_btn = (gcnew System::Windows::Forms::Button());
+			this->generation_btn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->grid))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->top_clues))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bottom_clues))->BeginInit();
@@ -121,6 +123,7 @@ namespace Skyscrapers {
 			this->grid->ScrollBars = System::Windows::Forms::ScrollBars::None;
 			this->grid->Size = System::Drawing::Size(250, 250);
 			this->grid->TabIndex = 0;
+			this->grid->TabStop = false;
 			// 
 			// top_clues
 			// 
@@ -290,19 +293,31 @@ namespace Skyscrapers {
 			// 
 			// solve_btn
 			// 
-			this->solve_btn->Location = System::Drawing::Point(433, 147);
+			this->solve_btn->Location = System::Drawing::Point(428, 224);
 			this->solve_btn->Name = L"solve_btn";
-			this->solve_btn->Size = System::Drawing::Size(141, 54);
+			this->solve_btn->Size = System::Drawing::Size(141, 71);
 			this->solve_btn->TabIndex = 6;
 			this->solve_btn->Text = L"Розв\'язати";
 			this->solve_btn->UseVisualStyleBackColor = true;
 			this->solve_btn->Click += gcnew System::EventHandler(this, &Solver::solve_btn_Click);
+			// 
+			// generation_btn
+			// 
+			this->generation_btn->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->generation_btn->Location = System::Drawing::Point(428, 147);
+			this->generation_btn->Name = L"generation_btn";
+			this->generation_btn->Size = System::Drawing::Size(141, 71);
+			this->generation_btn->TabIndex = 13;
+			this->generation_btn->Text = L"Згенерувати головоломку";
+			this->generation_btn->UseVisualStyleBackColor = true;
+			this->generation_btn->Click += gcnew System::EventHandler(this, &Solver::generation_btn_Click);
 			// 
 			// Solver
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(792, 567);
+			this->Controls->Add(this->generation_btn);
 			this->Controls->Add(this->solve_btn);
 			this->Controls->Add(this->result_label);
 			this->Controls->Add(this->right_clues);
@@ -328,5 +343,6 @@ namespace Skyscrapers {
 private: 
 	Void solve_btn_Click(Object^, EventArgs^);
 	Void clues_CellValueChanged(Object^, DataGridViewCellEventArgs^);
+	Void generation_btn_Click(Object^, EventArgs^);
 };
 }
