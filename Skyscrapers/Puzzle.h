@@ -8,6 +8,7 @@ namespace Skyscrapers {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
 
 	/// <summary>
 	/// Summary for Puzzle
@@ -24,6 +25,8 @@ namespace Skyscrapers {
 		}
 
 		Puzzle(int);
+		Puzzle(StreamReader^);
+
 		void clear_grid();
 		bool is_filled();
 		bool check_input();
@@ -54,6 +57,7 @@ namespace Skyscrapers {
 	private: System::Windows::Forms::Button^ generation_btn;
 	private: System::Windows::Forms::Button^ check_btn;
 	private: System::Windows::Forms::Button^ hint_btn;
+	private: System::Windows::Forms::Button^ save_btn;
 
 		int size;
 #pragma region Windows Form Designer generated code
@@ -82,6 +86,7 @@ namespace Skyscrapers {
 			this->generation_btn = (gcnew System::Windows::Forms::Button());
 			this->check_btn = (gcnew System::Windows::Forms::Button());
 			this->hint_btn = (gcnew System::Windows::Forms::Button());
+			this->save_btn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->right_clues))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->left_clues))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bottom_clues))->BeginInit();
@@ -332,11 +337,22 @@ namespace Skyscrapers {
 			this->hint_btn->UseVisualStyleBackColor = true;
 			this->hint_btn->Click += gcnew System::EventHandler(this, &Puzzle::hint_btn_Click);
 			// 
+			// save_btn
+			// 
+			this->save_btn->Location = System::Drawing::Point(450, 383);
+			this->save_btn->Name = L"save_btn";
+			this->save_btn->Size = System::Drawing::Size(141, 71);
+			this->save_btn->TabIndex = 15;
+			this->save_btn->Text = L"ַבונודעט";
+			this->save_btn->UseVisualStyleBackColor = true;
+			this->save_btn->Click += gcnew System::EventHandler(this, &Puzzle::save_btn_Click);
+			// 
 			// Puzzle
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(868, 567);
+			this->Controls->Add(this->save_btn);
 			this->Controls->Add(this->hint_btn);
 			this->Controls->Add(this->check_btn);
 			this->Controls->Add(this->generation_btn);
@@ -366,5 +382,6 @@ namespace Skyscrapers {
 		Void check_btn_Click(Object^, EventArgs^);
 		Void hint_btn_Click(Object^, EventArgs^);
 		Void grid_CellValueChanged(Object^, DataGridViewCellEventArgs^);
+		Void save_btn_Click(Object^, EventArgs^);
 };
 }

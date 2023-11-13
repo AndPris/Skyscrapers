@@ -171,6 +171,7 @@ Void Solver::clues_CellValueChanged(Object^ sender, DataGridViewCellEventArgs^ e
 }
 
 Void Solver::generation_btn_Click(Object^ sender, EventArgs^ e) {
+	solve_btn->Enabled = true;
 	clear_grid();
 	result_label->Text = "";
 

@@ -43,6 +43,7 @@ namespace Skyscrapers {
 	private: System::Windows::Forms::Button^ program_solver_btn;
 	private: System::Windows::Forms::Button^ show_rules_btn;
 	private: System::Windows::Forms::Button^ hand_solver_btn;
+	private: System::Windows::Forms::Button^ load_btn;
 
 	protected:
 
@@ -65,6 +66,7 @@ namespace Skyscrapers {
 			this->program_solver_btn = (gcnew System::Windows::Forms::Button());
 			this->show_rules_btn = (gcnew System::Windows::Forms::Button());
 			this->hand_solver_btn = (gcnew System::Windows::Forms::Button());
+			this->load_btn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->size))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -120,11 +122,22 @@ namespace Skyscrapers {
 			this->hand_solver_btn->UseVisualStyleBackColor = true;
 			this->hand_solver_btn->Click += gcnew System::EventHandler(this, &Welcome::hand_solver_btn_Click);
 			// 
+			// load_btn
+			// 
+			this->load_btn->Location = System::Drawing::Point(89, 346);
+			this->load_btn->Name = L"load_btn";
+			this->load_btn->Size = System::Drawing::Size(149, 67);
+			this->load_btn->TabIndex = 5;
+			this->load_btn->Text = L"Завантажити";
+			this->load_btn->UseVisualStyleBackColor = true;
+			this->load_btn->Click += gcnew System::EventHandler(this, &Welcome::load_btn_Click);
+			// 
 			// Welcome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(352, 397);
+			this->ClientSize = System::Drawing::Size(352, 460);
+			this->Controls->Add(this->load_btn);
 			this->Controls->Add(this->hand_solver_btn);
 			this->Controls->Add(this->show_rules_btn);
 			this->Controls->Add(this->program_solver_btn);
@@ -145,5 +158,6 @@ namespace Skyscrapers {
 		Void program_solver_btn_Click(Object^, EventArgs^);
 		Void show_rules_btn_Click(Object^, EventArgs^);
 		Void hand_solver_btn_Click(Object^, EventArgs^);
+		Void load_btn_Click(Object^, EventArgs^);
 };
 }
